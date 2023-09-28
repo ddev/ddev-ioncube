@@ -1,0 +1,14 @@
+name: ioncube
+
+project_files:
+  - web-build/ioncube/download-loaders
+  - web-build/ioncube/modify-dockerfile
+
+post_install_actions:
+  - |
+    #ddev-description: Download IonCube Loaders
+    #
+    ./web-build/ioncube/download-loaders
+  - |
+    #ddev-description: Modify Dockerfile
+    ./web-build/ioncube/modify-dockerfile

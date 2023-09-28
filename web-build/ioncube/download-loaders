@@ -1,0 +1,18 @@
+#!/bin/bash
+# ddev-generated
+set -e
+LOADER_URL="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz"
+OUTPUT_DIR="./web-build"
+
+rm -rf "$OUTPUT_DIR/ioncube_loaders_lin_x86-64"*
+
+if command -v aria2c &> /dev/null; then
+	aria2c "$LOADER_URL" -d "$OUTPUT_DIR"
+elif command -v wget &> /dev/null; then
+	wget "$LOADER_URL" -P "$OUTPUT_DIR"
+elif command -v curl &> /dev/null; then
+	curl "$LOADER_URL" -o "$OUTPUT_DIR/ioncube_loaders_lin_x86-64.tar.gz"
+else
+	echo "None of the required downloaders (aria2c, wget, curl) is available."
+	exit 1
+fi
