@@ -13,10 +13,10 @@ This repository provides [IonCube Loaders](https://www.ioncube.com/loaders.php) 
 
 ## Features
 
-✅ IonCube Loaders for all supported PHP versions
-✅ Plays nice with your existing DDEV configuration
-✅ Works with other web container customizations
-✅ Set-and-forget workflow
+✅ IonCube Loaders for all supported PHP versions  
+✅ Plays nice with your existing DDEV configuration  
+✅ Works with other web container customizations  
+✅ Set-and-forget workflow  
 
 ## Installation
 
