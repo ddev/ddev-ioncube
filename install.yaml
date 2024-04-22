@@ -1,4 +1,4 @@
-name: ioncube
+name: ddev-ioncube
 
 project_files:
   - web-build/ioncube/download-loaders
