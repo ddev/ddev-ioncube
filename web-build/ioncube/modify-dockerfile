@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#ddev-generated
 
 remove_directives() {
 	local FILE_PATH="$1"
@@ -28,7 +29,8 @@ remove_directives() {
 
 	done < "$FILE_PATH"
 
-  echo 'lalala'
+	# Overwrite the original file with the temporary file
+	mv "$TMP_FILE" "$FILE_PATH"
 }
 
 add_directives() {
@@ -38,7 +40,7 @@ add_directives() {
 
 	cat <<EOF >> "$FILE_PATH"
 # BEGIN IonCube Install
-ADD ioncube_loaders_lin_x86-64.tar.gz /etc/php
+ADD ioncube_loaders.tar.gz /etc/php
 
 RUN chown -R root:root /etc/php/ioncube
 RUN rm -rf /etc/php/*/mods-available/ioncube.ini /etc/php/*/mods-available/00-ioncube.ini
@@ -65,12 +67,16 @@ EOF
 }
 
 # Define the file path
-FILE_PATH="web-build/Dockerfile"
+FILE_PATH="web-build/Dockerfile.ioncube"
+OLD_PATH="web-build/Dockerfile"
+
+if [ -e "$OLD_PATH" ]; then
+	remove_directives "$OLD_PATH"
+fi
 
 if [ -e "$FILE_PATH" ]; then
 	remove_directives "$FILE_PATH"
 	add_directives "$FILE_PATH"
 else
-	add_header "$FILE_PATH"
 	add_directives "$FILE_PATH"
 fi
