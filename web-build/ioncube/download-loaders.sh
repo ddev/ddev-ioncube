@@ -1,9 +1,10 @@
 #!/bin/bash
 #ddev-generated
 set -e
-ARCH=$(/usr/bin/arch)
 
-if [ "$ARCH" = "arm64" ]; then
+ARCH="$(/usr/bin/arch)"
+
+if [ "$ARCH" = "aarch64" ]; then
 	ARCH="aarch64"
 elif [ "$ARCH" = "x86_64" ]; then
 	ARCH="x86-64"
