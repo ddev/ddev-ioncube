@@ -2,7 +2,7 @@
 #ddev-generated
 set -e
 
-ARCH="$(/usr/bin/arch)"
+ARCH="$(uname -m)"
 
 if [ "$ARCH" = "aarch64" ]; then
 	ARCH="aarch64"
