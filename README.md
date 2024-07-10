@@ -2,8 +2,8 @@
 
 # ddev-ioncube - use IonCube Loaders in DDEV
 
-![GitHub release (with filter)](https://img.shields.io/github/v/release/oblakstudio/ddev-ioncube)
-[![E2E Tests](https://github.com/oblakstudio/ddev-ioncube/actions/workflows/cron_tests.yml/badge.svg?event=schedule)](https://github.com/oblakstudio/ddev-ioncube/actions/workflows/tests.yml)
+![GitHub release (with filter)](https://img.shields.io/github/v/release/ddev/ddev-ioncube)
+[![E2E Tests](https://github.com/ddev/ddev-ioncube/actions/workflows/cron_tests.yml/badge.svg?event=schedule)](https://github.com/ddev/ddev-ioncube/actions/workflows/tests.yml)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![project is maintained](https://img.shields.io/maintenance/yes/2024.svg)
 
@@ -22,7 +22,7 @@ This repository provides [IonCube Loaders](https://www.ioncube.com/loaders.php) 
 ## Installation
 
 ```bash
-$ ddev get oblakstudio/ddev-ioncube
+$ ddev get ddev/ddev-ioncube
 $ ddev restart
 ```
 ## Configuration
