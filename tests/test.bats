@@ -5,12 +5,12 @@ load "${TEST_BREW_PREFIX}/lib/bats-assert/load.bash"
 setup() {
   set -eu -o pipefail
 
-  export ADDON_DIR="$( cd "$( dirname "$BATS_TEST_FILENAME" )" >/dev/null 2>&1 && pwd )/.."
+  export ADDON_DIR="$(cd "$(dirname "$BATS_TEST_FILENAME")" >/dev/null 2>&1 && pwd)/.."
   export PROJECT=testproj
   export TEST_DIR="$HOME/tmp/$PROJECT"
   export DDEV_NON_INTERACTIVE=true
 
-  mkdir -p $TEST_DIR && cd "$TEST_DIR" || ( printf "unable to cd to $TEST_DIR\n" && exit 1 )
+  mkdir -p $TEST_DIR && cd "$TEST_DIR" || (printf "unable to cd to $TEST_DIR\n" && exit 1)
 
   ddev delete -Oy $PROJECT >/dev/null 2>&1 || true
   ddev config --project-name=$PROJECT --omit-containers=db --disable-upload-dirs-warning
@@ -40,7 +40,7 @@ health_checks() {
 
 teardown() {
   set -eu -o pipefail
-  cd "$TEST_DIR" || ( printf "unable to cd to $TEST_DIR\n" && exit 1 )
+  cd "$TEST_DIR" || (printf "unable to cd to $TEST_DIR\n" && exit 1)
   ddev stop
   ddev delete -Oy "$PROJECT" >/dev/null 2>&1
   [ "$TEST_DIR" != "" ] && rm -rf "$TEST_DIR"
@@ -57,8 +57,7 @@ teardown() {
 # bats test_tags=release
 @test "install from release" {
   set -eu -o pipefail
-  cd ${TEST_DIR} || ( printf "unable to cd to ${TEST_DIR}\n" && exit 1 )
-  echo "# ddev get oblakstudio/ddev-ioncube with project ${PROJECT} in ${TEST_DIR} ($(pwd))" >&3
-  health_checks "oblakstudio/ddev-ioncube"
+  cd ${TEST_DIR} || (printf "unable to cd to ${TEST_DIR}\n" && exit 1)
+  echo "# ddev get ddev/ddev-ioncube with project ${PROJECT} in ${TEST_DIR} ($(pwd))" >&3
+  health_checks "ddev/ddev-ioncube"
 }
-
