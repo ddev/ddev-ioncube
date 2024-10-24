@@ -21,10 +21,24 @@ This repository provides [IonCube Loaders](https://www.ioncube.com/loaders.php) 
 
 ## Installation
 
+For DDEV v1.23.5 or above run
+
 ```bash
-$ ddev get ddev/ddev-ioncube
-$ ddev restart
+ddev add-on get ddev/ddev-ioncube
 ```
+
+For earlier versions of DDEV run
+
+```bash
+ddev get ddev/ddev-ioncube
+```
+
+Then restart the project
+
+```bash
+ddev restart
+```
+
 ## Configuration
 
 None. Addon works out-of-the-box.
