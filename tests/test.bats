@@ -48,6 +48,16 @@ health_checks() {
   assert_success
   assert_output --partial 'ionCube Loader'
   assert_output --partial 'ionCube PHP Loader'
+
+  # check php8.4 as well
+  run ddev exec php8.4 -v
+  assert_success
+  assert_output --partial 'with the ionCube PHP Loader'
+
+  run ddev exec php8.4 -m
+  assert_success
+  assert_output --partial 'ionCube Loader'
+  assert_output --partial 'ionCube PHP Loader'
 }
 
 teardown() {
