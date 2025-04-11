@@ -6,7 +6,7 @@ add_directives() {
 	local PHP_VERSIONS=("5.6" "7.0" "7.1" "7.2" "7.3" "7.4" "8.1" "8.2" "8.3" "8.4")
 
 	cat <<EOF >>"$FILE_PATH"
-# BEGIN IonCube Install
+# BEGIN ionCube Install
 ADD ioncube_loaders.tar.gz /etc/php
 
 RUN chown -R root:root /etc/php/ioncube
@@ -23,7 +23,7 @@ EOF
 
 	cat <<EOF >>"$FILE_PATH"
 RUN phpenmod 00-ioncube
-# END IonCube Install
+# END ionCube Install
 EOF
 }
 

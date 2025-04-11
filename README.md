@@ -12,11 +12,11 @@ This add-on integrates ionCube Loaders into your [DDEV](https://ddev.com/) proje
 
 ## Features
 
-✅ ionCube Loaders for all supported PHP versions
-✅ Multi-arch support (Will detect your system architecture and install the correct loader version)
-✅ Plays nice with your existing DDEV configuration
-✅ Works with other web container customizations
-✅ Set-and-forget workflow
+- ✅ ionCube Loaders for all supported PHP versions
+- ✅ Multi-arch support (Will detect your system architecture and install the correct loader version)
+- ✅ Plays nice with your existing DDEV configuration
+- ✅ Works with other web container customizations
+- ✅ Set-and-forget workflow
 
 ## Installation
 
