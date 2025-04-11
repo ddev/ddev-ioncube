@@ -7,8 +7,9 @@ project_files:
 post_install_actions:
   - |
     #ddev-description: Download IonCube Loaders
-    #
     ./web-build/ioncube/download-loaders.sh
   - |
     #ddev-description: Modify Dockerfile
     ./web-build/ioncube/modify-dockerfile.sh
+
+ddev_version_constraint: '>= v1.24.3'
