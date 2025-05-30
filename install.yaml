@@ -1,15 +1,23 @@
 name: ddev-ioncube
 
 project_files:
-  - web-build/ioncube/download-loaders.sh
   - web-build/ioncube/modify-dockerfile.sh
 
 post_install_actions:
   - |
-    #ddev-description: Download ionCube Loaders
-    ./web-build/ioncube/download-loaders.sh
-  - |
-    #ddev-description: Modify Dockerfile
+    #ddev-description: Modify web-build/Dockerfile.ioncube
     ./web-build/ioncube/modify-dockerfile.sh
 
-ddev_version_constraint: '>= v1.24.3'
+ddev_version_constraint: ">= v1.24.3"
+
+removal_actions:
+  - |
+    #ddev-nodisplay
+    #ddev-description:Remove Dockerfile.ioncube file
+    if [ -f web-build/Dockerfile.ioncube ]; then
+      if grep -q '#ddev-generated' web-build/Dockerfile.ioncube; then
+        rm -f web-build/Dockerfile.ioncube
+      else
+        echo "Unwilling to remove '$DDEV_APPROOT/.ddev/web-build/Dockerfile.ioncube' because it does not have #ddev-generated in it; you can manually delete it if it is safe to delete."
+      fi
+    fi
