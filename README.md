@@ -23,14 +23,8 @@ This add-on integrates ionCube Loaders into your [DDEV](https://ddev.com/) proje
 
 ```bash
 ddev add-on get ddev/ddev-ioncube
-ddev restart
+ddev restart --no-cache
 ```
-
-> [!NOTE]
-> The latest ionCube Loaders are always pulled when you upgrade DDEV. To pull the latest loaders manually, run:
-> ```bash
-> ddev restart --no-cache
-> ```
 
 ## Configuration
 
