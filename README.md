@@ -13,7 +13,7 @@ This add-on integrates ionCube Loaders into your [DDEV](https://ddev.com/) proje
 
 ## Features
 
-- ✅ ionCube Loaders for all supported PHP versions
+- ✅ ionCube Loaders for PHP 5.6–8.5, except PHP 8.0 ([not supported by ionCube](https://blog.ioncube.com/2022/08/12/ioncube-php-8-1-support-faq-were-almost-ready/))
 - ✅ Multi-arch support (Will detect your system architecture and install the correct loader version)
 - ✅ Plays nice with your existing DDEV configuration
 - ✅ Works with other web container customizations

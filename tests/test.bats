@@ -39,25 +39,27 @@ setup() {
 }
 
 health_checks() {
-  # default php is 8.3
-  run ddev php -v
-  assert_success
-  assert_output --partial 'with the ionCube PHP Loader'
+  # check that loader .so and ini are present for all supported PHP versions
+  for VERSION in 8.5 8.4 8.3 8.2 8.1 7.4 7.3 7.2 7.1 7.0 5.6; do
+    run ddev exec test -f /etc/php/ioncube/ioncube_loader_lin_${VERSION}.so
+    assert_success
 
-  run ddev php -m
-  assert_success
-  assert_output --partial 'ionCube Loader'
-  assert_output --partial 'ionCube PHP Loader'
+    run ddev exec test -f /etc/php/${VERSION}/mods-available/00-ioncube.ini
+    assert_success
+  done
 
-  # check php8.4 as well
-  run ddev exec php8.4 -v
-  assert_success
-  assert_output --partial 'with the ionCube PHP Loader'
+  # check that the loader actually works for PHP versions bundled in ddev-webserver
+  for VERSION in 8.5 8.4 8.3 8.2; do
+    run ddev exec php${VERSION} -v
+    assert_success
+    assert_output --partial 'with the ionCube PHP Loader'
+    refute_output --partial 'PHP Warning:'
 
-  run ddev exec php8.4 -m
-  assert_success
-  assert_output --partial 'ionCube Loader'
-  assert_output --partial 'ionCube PHP Loader'
+    run ddev exec php${VERSION} -m
+    assert_success
+    assert_output --partial 'ionCube Loader'
+    assert_output --partial 'ionCube PHP Loader'
+  done
 }
 
 teardown() {
