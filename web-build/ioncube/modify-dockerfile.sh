@@ -17,7 +17,7 @@ RUN <<ENDIONCUBE
   elif [ "$ARCH" = "amd64" ]; then
     ARCH="x86-64"
   fi
-  curl -L -o /tmp/ioncube_loaders.tar.gz https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_${ARCH}.tar.gz
+  curl -fsSL --retry 3 -o /tmp/ioncube_loaders.tar.gz https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_${ARCH}.tar.gz
   mkdir -p /etc/php/ioncube
   tar -zxvf /tmp/ioncube_loaders.tar.gz -C /etc/php/ioncube --strip-components=1
   rm -f /tmp/ioncube_loaders.tar.gz
